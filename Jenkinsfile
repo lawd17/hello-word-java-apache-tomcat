@@ -22,6 +22,7 @@ pipeline {
         stage('Test Integration') {
             steps {
                 sh "wget -m http://localhost:8081/app-web-jonay"
+                sh "curl -s http://localhost:8081/app-web-jonay/ | grep Jonay"
             }
         }
     }
