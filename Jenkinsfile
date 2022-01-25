@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Test Junit') {
             steps {
-                echo 'mvn clean test'
+                sh 'mvn clean test'
             }
         }
         stage('Build') {
             steps {
-                echo 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
         stage('Deploy') {
