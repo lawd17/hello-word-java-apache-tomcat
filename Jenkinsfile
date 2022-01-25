@@ -21,7 +21,7 @@ pipeline {
         stage('Test Integration') {
             steps {
                 sh "wget -m http://localhost:8082/app-web-demo"
-                sh "grep -i Jonay src/main/webapp/index.jsp"
+                sh "grep -i Jonay http://localhost:8082/app-web-demo/index.jsp"
             }
         }
     }
