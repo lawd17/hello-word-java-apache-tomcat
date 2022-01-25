@@ -16,19 +16,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "docker build -t hello-word-java-apache-tomcat . "
-                sh "docker run -d -p 8081:8080 --name 'tomcat-app-jonay' hello-word-java-apache-tomcat"
+                sh "docker run -d -p 8081:8080 hello-word-java-apache-tomcat"
             }
         }
         stage('Test Integration') {
             steps {
                 sh "wget -m http://localhost:8081/app-web-jonay"
                 sh "curl -s http://localhost:8081/app-web-jonay/ | grep Jonay"
-            }
-        }
-        stage('Clear docker') {
-            steps {
-                sh 'docker stop tomcat-app-jonay'
-                sh 'docker stop tomcat-app-jonay'
             }
         }
     }
